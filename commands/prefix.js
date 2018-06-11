@@ -3,7 +3,7 @@ const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 
-  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("<:tickNo:432418492667396097> **| You don't have `ADMINISTRATOR` perms.**");
+  if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("🚫 **| You don't have `ADMINISTRATOR` perms.**");
   if(!args[0]) return message.channel.send("Please specify something!")
 
   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
