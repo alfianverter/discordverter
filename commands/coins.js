@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
   .setThumbnail(coinicon)
   .addField( "Coins 📀", `${userCoins} \\🔘`, true)
   .addField("Gain more coins", "by talking more in chat!", true)
-  .addField("Want to send coins to people?", "~pay <user> <amount>", true)
+  .addField("Want to send coins to people?", ">pay <user> <amount>", true)
   .setFooter(`Requested By ${message.author.username} ID: ${message.author.id}`, message.author.displayAvatarURL);
   const mess = await message.channel.send(`🔄 Loading Coins of user ${message.author.id}`);
   mess.edit(coinEmbed)
