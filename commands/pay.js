@@ -1,47 +1,39 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-let Coins = require("../coins.json");
+let coins = require("../coins.json");
 
 module.exports.run = async (bot, message, args) => {
+  //!pay @isatisfied 59345
 
-
-  if(!Coins[message.author.id]){
-    return message.reply("You don't have any Coins! Earn some by talking in chat! :)")
+  if(!coins[message.author.id]){
+    return message.reply("You don't have any coins!")
   }
 
   let pUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
 
-  if(!Coins[pUser.id]){
-    Coins[pUser.id] = {
-      Coins: 0
+  if(!coins[pUser.id]){
+    coins[pUser.id] = {
+      coins: 0
     };
   }
 
-  let pCoins = Coins[pUser.id].Coins;
-  let sCoins = Coins[message.author.id].Coins;
+  let pCoins = coins[pUser.id].coins;
+  let sCoins = coins[message.author.id].coins;
 
-  if(sCoins < args[0]) return message.reply("Not enough Coins there!");
+  if(sCoins < args[0]) return message.reply("Not enough coins there!");
 
-  Coins[message.author.id] = {
-    Coins: sCoins - parseInt(args[1])
+  coins[message.author.id] = {
+    coins: sCoins - parseInt(args[1])
   };
 
-  Coins[pUser.id] = {
-    Coins: pCoins + parseInt(args[1])
+  coins[pUser.id] = {
+    coins: pCoins + parseInt(args[1])
   };
-  let pay = new Discord.RichEmbed()
-    .setTitle("coin Transactions")
-    .setColor("#0263ff")
-    .addField("Sender", message.author)
-    .addField("Receiver", pUser)
-    .addField("Coin Amount", `${args[1]}`)
-    .setFooter(`Requested By ${message.author.username} ID: ${message.author.id}`, message.author.displayAvatarURL);
 
-    message.channel.send(pay).then(msg => {msg.delete(25000)});
-    console.log(`${message.author} has sent ${pUser} ${args[1]} Coins. :ring:`);
+  message.channel.send(`${message.author} has given ${pUser} ${args[1]} coins.`);
 
-  fs.writeFile("./coins.json", JSON.stringify(Coins), (err) => {
-    if(err) console.log(err)
+  fs.writeFile("./coins.json", JSON.stringify(coins), (err) => {
+    if(err) cosole.log(err)
   });
 
 
