@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
    .addField('Reason', reason, true)
    .setColor(0xD4AF37)
     defineduser.send(Embed)
-    message.channel.send("<:tickYes:432418492889694210> **| That member has been poked.**")
+    message.channel.send("✅ **| That member has been poked.**")
                   }
 }
 
