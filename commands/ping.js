@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle('Pong!')
         .addField('📶 Latency', (new Date().getTime() - message.createdTimestamp) + ' ms', true)
         .addField('💠 Websocket' , `${Math.round(bot.ping)} ms`, false)
-        .addField("API ping 📛", `${Math.round(bot.ping)}ms`)
+        .addField("📛 API ping", `${Math.round(bot.ping)}ms`)
         .setFooter(`Requested By ${message.author.username} ID: ${message.author.id}`, message.author.displayAvatarURL)
          message.channel.send(pEmbed);
 }
