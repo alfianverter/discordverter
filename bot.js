@@ -20,8 +20,8 @@
             `My prefix default >.`,
             `Music - Mod - Admin.`,
             `Use ${bot.guilds.size} Server.`,
-            `with ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users.`
-            `Verter Developmenr#1779.`
+            `with ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users.`,
+            `Verter Developmenr#1779.`,
         ];
         let rstatus = Math.floor(Math.random() * status.length);
 
