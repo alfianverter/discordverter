@@ -155,4 +155,38 @@
         .addField("Channels", guild.channels.size, true)
          channel.send(embed);
 	});
+bot.on("guildMemberAdd", member => {
+  var guild = member.guild;
+  var count = guild.memberCount;
+  
+  if (guild.id !== '454711337138782219') return;
+  
+  var total = member.guild.channels.get('455507062718332948')
+  var memberc = member.guild.channels.get('455507095203348480')
+  var botcounts = member.guild.channels.get('455758511918284801')
+  
+  total.setName(`Total Users: ${count}`)
+  memberc.setName(`Member Count: ${guild.members.filter(m => !m.user.bot).size}`)
+  
+  if(member.user.bot){botcounts.setName(`Bot Count: ${guild.members.filter(m => m.user.bot).size}`)}
+
+  });
+    
+bot.on("guildMemberRemove", member => {
+  var guild = member.guild;
+  var count = guild.memberCount;
+  
+  if (guild.id !== '454711337138782219') return;
+  
+  var total = member.guild.channels.get('455507062718332948')
+  var memberc = member.guild.channels.get('455507095203348480')
+  var botcounts = member.guild.channels.get('455758511918284801')
+  
+  total.setName(`Total Users: ${count}`)
+  memberc.setName(`Member Count: ${guild.members.filter(m => !m.user.bot).size}`)
+  
+  if(member.user.bot){botcounts.setName(`Bot Count: ${guild.members.filter(m => m.user.bot).size}`)}
+    
+    console.log(`${member} just left us!`)
+  });
 	bot.login(process.env.TOKEN);
