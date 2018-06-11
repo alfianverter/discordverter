@@ -130,46 +130,6 @@
 
 
 	});
-	bot.on('guildMemberAdd', member => {
-    bot.channels.get('454775818825236488').setName(`Total Users 〉 ${member.guild.memberCount}`)
-    let humans = member.guild.members.filter(m => !m.user.bot).size;
-    bot.channels.get('454775914069491722').setName(`Human 〉 ${humans}`)
-    let bots = member.guild.members.filter(m => m.user.bot).size;
-    bot.channels.get('454775966221336596').setName(`Robot 〉 ${bots}`)
-	const members = member.guild.memberCount;
-	const channel = member.guild.channels.find('name', 'member-log');
-	if (!channel) return;
-	
-       let Role = member.guild.roles.find(`name`, "Bots");
-       if(member.user.bot){
-	member.addRole(Role.id)
-       }else{
-      let role = member.guild.roles.find(`name`, "User");
-	member.addRole(role.id)
-       }
- 
-	let Embed = new Discord.RichEmbed()
-	.setFooter(`User Joined | Members- ${member.guild.memberCount}`)
-	.setColor("#cde246")    
-	.setAuthor(`${member.displayName} has joined ${member.guild.name}`, member.user.displayAvatarURL)
-	.setTimestamp()
-	channel.send(Embed);
-	});
-	bot.on('guildMemberRemove', member => {
-    bot.channels.get('454775818825236488').setName(`Total Users 〉 ${member.guild.memberCount}`)
-    let humans = member.guild.members.filter(m => !m.user.bot).size;
-    bot.channels.get('454775914069491722').setName(`Human 〉 ${humans}`)
-    let bots = member.guild.members.filter(m => m.user.bot).size;
-    bot.channels.get('454775966221336596').setName(`Robot 〉 ${bots}`)
-	const channel = member.guild.channels.find(`name`, 'member-log');
-	if(!channel) return; 
-	let Embed = new Discord.RichEmbed()
-	.setColor("#e26346")
-	.setAuthor(`${member.displayName}, has left ${member.guild.name}.`, member.user.displayAvatarURL)
-	.setTimestamp()
-	.setFooter(`User Left | Members- ${member.guild.memberCount}`)
-	channel.send(Embed);
-	});
 
 	bot.on('guildCreate', guild => {
 	      let channel = bot.channels.get("428564028239904790")
