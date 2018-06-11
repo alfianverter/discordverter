@@ -17,11 +17,11 @@
 	}, 1000);
 	function botStatus() {
         let status = [
-            `Verter lagi oprasi aku :"D.`,
-            `Aku lagi di anuin Verter >:V.`,
-            `Susah punya owner ganteng :D.`,
-            `Si verter terlalu ganteng :V`,
-            `Verter jangan bunuh aku.`
+            `My prefix default >.`,
+            `Music - Mod - Admin.`,
+            `Use ${bot.guilds.size} Server.`,
+            `with ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()} users.`
+            `Verter Developmenr#1779.`
         ];
         let rstatus = Math.floor(Math.random() * status.length);
 
