@@ -12,7 +12,6 @@ module.exports.run = async (bot, message, args) => {
   let userCoins = coins[message.author.id].coins;
 
   let coinicon = message.author.displayAvatarURL
-  if(message.author.id !== '315524485501550594') return message.channel.send ("<:toohappy:443956536486789131> As this command is still in development, It is limited to FrostedWeFall#8609 Only");
   let coinEmbed = new Discord.RichEmbed()
   .setAuthor(`${message.author.username}'s Balance`)
   .setDescription(`Here is ${message.author.username}'s Balance!`)
