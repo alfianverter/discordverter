@@ -29,7 +29,6 @@ module.exports.run = async (bot, message, args) => {
   Coins[pUser.id] = {
     Coins: pCoins + parseInt(args[1])
   };
-  if(message.author.id !== '315524485501550594') return message.channel.send ("<:toohappy:443956536486789131> As this command is still in development, It is limited to FrostedWeFall#8609 Only");
   let pay = new Discord.RichEmbed()
     .setTitle("coin Transactions")
     .setColor("#0263ff")
